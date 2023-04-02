@@ -1,0 +1,256 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5727fe2b-c8b4-4674-8c80-6732bc286e1e" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Steam DW</ID>
+  <Name>Steam DW</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Steam DW</DataSourceID>
+  <Schema>
+    <xs:schema id="Steam_x0020_DW" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Steam_x0020_DW" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="d6662c6c-f47e-4925-a760-9beb6c05de3b">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_DIM_Developer" msprop:design-time-name="120f3cf9-d887-4bad-a29c-48aeb11793ba" msprop:DbTableName="DIM_Developer" msprop:FriendlyName="DIM_Developer" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Developer_ID" msprop:design-time-name="a5d85cc6-671d-443a-97d2-1bd0aecf0973" msprop:DbColumnName="Developer_ID" msprop:FriendlyName="Developer_ID" type="xs:int" />
+                  <xs:element name="developer" msprop:design-time-name="42d62968-f09c-4257-9aaf-c740c0042f9d" msprop:DbColumnName="developer" msprop:FriendlyName="developer" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_Game" msprop:design-time-name="1b13147a-4f64-4309-b8d7-9c5570179808" msprop:DbTableName="DIM_Game" msprop:FriendlyName="DIM_Game" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Game_ID" msprop:design-time-name="04603f19-53bf-4290-b585-c6b6796ebee1" msprop:DbColumnName="Game_ID" msprop:FriendlyName="Game_ID" type="xs:double" />
+                  <xs:element name="name" msprop:design-time-name="f25af8aa-eef9-4f39-ba9e-200676e06f2a" msprop:DbColumnName="name" msprop:FriendlyName="name" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="english" msprop:design-time-name="c7950e23-47e5-415b-b889-9f8bedc6bac5" msprop:DbColumnName="english" msprop:FriendlyName="english" type="xs:double" minOccurs="0" />
+                  <xs:element name="required_age" msprop:design-time-name="0c3c1e7a-5bd0-4ddf-92a9-be695fe1aea0" msprop:DbColumnName="required_age" msprop:FriendlyName="required_age" type="xs:double" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_Genres" msprop:design-time-name="d88331a3-c9c2-4515-a6c3-d6c26b692ab4" msprop:DbTableName="DIM_Genres" msprop:FriendlyName="DIM_Genres" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Genres_ID" msprop:design-time-name="9d4ac4d0-7c84-4ebc-8608-7f51789cb6b1" msprop:DbColumnName="Genres_ID" msprop:FriendlyName="Genres_ID" type="xs:int" />
+                  <xs:element name="genres" msprop:design-time-name="0bf63cc7-5dae-42c2-9f9a-1064ca22e5d2" msprop:DbColumnName="genres" msprop:FriendlyName="genres" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_Owners" msprop:design-time-name="07fbd27c-25c1-493a-9900-c77e67e4ecc5" msprop:DbTableName="DIM_Owners" msprop:FriendlyName="DIM_Owners" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Owners_ID" msprop:design-time-name="531b4973-6d8f-4810-a53a-d4a946b4079b" msprop:DbColumnName="Owners_ID" msprop:FriendlyName="Owners_ID" type="xs:int" />
+                  <xs:element name="owners" msprop:design-time-name="f6d4beb4-fb7d-4cc8-8737-b33a8bf9d634" msprop:DbColumnName="owners" msprop:FriendlyName="owners" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_Platforms" msprop:design-time-name="37c6b677-bb06-44c7-96b7-bcf9b1fc07cc" msprop:DbTableName="DIM_Platforms" msprop:FriendlyName="DIM_Platforms" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Platfroms_ID" msprop:design-time-name="8af91f96-e703-40dd-885a-1f009b758654" msprop:DbColumnName="Platfroms_ID" msprop:FriendlyName="Platfroms_ID" type="xs:int" />
+                  <xs:element name="platforms" msprop:design-time-name="4fe49067-7ec9-4e6e-b2bf-cab21072c06c" msprop:DbColumnName="platforms" msprop:FriendlyName="platforms" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_Publisher" msprop:design-time-name="d209f027-2967-49d1-818c-aca587f976d5" msprop:DbTableName="DIM_Publisher" msprop:FriendlyName="DIM_Publisher" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Publisher_ID" msprop:design-time-name="f7b9774d-f136-46ae-ba05-6d1d654f5014" msprop:DbColumnName="Publisher_ID" msprop:FriendlyName="Publisher_ID" type="xs:int" />
+                  <xs:element name="publisher" msprop:design-time-name="acaf6afa-48a5-4f67-8abc-827134d0a0da" msprop:DbColumnName="publisher" msprop:FriendlyName="publisher" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_Steamspy_tags" msprop:design-time-name="20866ca0-fe12-4c86-9a1c-ac8d8bd82dcf" msprop:DbTableName="DIM_Steamspy_tags" msprop:FriendlyName="DIM_Steamspy_tags" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Steamspy_tags_ID" msprop:design-time-name="592603b3-cb25-4e45-852d-cfe29218f8b9" msprop:DbColumnName="Steamspy_tags_ID" msprop:FriendlyName="Steamspy_tags_ID" type="xs:int" />
+                  <xs:element name="steamspy_tags" msprop:design-time-name="f17f229f-c3f6-439e-8725-202593fb29d3" msprop:DbColumnName="steamspy_tags" msprop:FriendlyName="steamspy_tags" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_Time" msprop:design-time-name="ef83af93-813e-4abc-bf11-e62805edde62" msprop:DbTableName="DIM_Time" msprop:FriendlyName="DIM_Time" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Time_ID" msprop:design-time-name="9d2e0b4d-0bd0-4554-8ef6-812722603630" msprop:DbColumnName="Time_ID" msprop:FriendlyName="Time_ID" type="xs:int" />
+                  <xs:element name="release_date" msprop:design-time-name="91096bfc-3ea6-41d6-b214-eda1c6fd5d69" msprop:DbColumnName="release_date" msprop:FriendlyName="release_date" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Day" msprop:design-time-name="5b7bba2a-b06e-48d9-927e-910038dbbbcc" msprop:DbColumnName="Day" msprop:FriendlyName="Day" type="xs:int" minOccurs="0" />
+                  <xs:element name="Month" msprop:design-time-name="21344630-5f88-4062-b38c-63cca360e2d0" msprop:DbColumnName="Month" msprop:FriendlyName="Month" type="xs:int" minOccurs="0" />
+                  <xs:element name="Year" msprop:design-time-name="7963ca09-b12d-4541-afec-ed0ddaad6a44" msprop:DbColumnName="Year" msprop:FriendlyName="Year" type="xs:int" minOccurs="0" />
+                  <xs:element name="Quarter" msprop:design-time-name="9226c639-4b20-46de-8abf-43b0970418e5" msprop:DbColumnName="Quarter" msprop:FriendlyName="Quarter" type="xs:int" minOccurs="0" />
+                  <xs:element name="Day_of_week" msprop:design-time-name="ef670b66-d620-4578-822d-019dc1481014" msprop:DbColumnName="Day_of_week" msprop:FriendlyName="Day_of_week" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Fact" msprop:design-time-name="ee97b7e9-7733-49e9-bc67-c87804870263" msprop:DbTableName="Fact" msprop:FriendlyName="Fact" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Fact_ID" msprop:design-time-name="1d26442f-71a3-44e2-8abe-e043f22ba37e" msprop:DbColumnName="Fact_ID" msprop:FriendlyName="Fact_ID" type="xs:int" />
+                  <xs:element name="Game_ID" msprop:design-time-name="cb0a94ef-1391-4f1a-a098-a50937cbd0c1" msprop:DbColumnName="Game_ID" msprop:FriendlyName="Game_ID" type="xs:double" minOccurs="0" />
+                  <xs:element name="Developer_ID" msprop:design-time-name="efed0336-3d4f-49d9-a9a9-2c8dd230f40b" msprop:DbColumnName="Developer_ID" msprop:FriendlyName="Developer_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="Publisher_ID" msprop:design-time-name="42ba9b44-bb66-4253-8709-77ec371682fb" msprop:DbColumnName="Publisher_ID" msprop:FriendlyName="Publisher_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="Platfroms_ID" msprop:design-time-name="e25dcbb1-25d7-4201-a991-a484b9343734" msprop:DbColumnName="Platfroms_ID" msprop:FriendlyName="Platfroms_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="Steamspy_tags_ID" msprop:design-time-name="c38813e0-1dc4-4df4-89ea-d6d1982378f8" msprop:DbColumnName="Steamspy_tags_ID" msprop:FriendlyName="Steamspy_tags_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="Genres_ID" msprop:design-time-name="3c238917-dde5-4d7b-845e-e1ea04efce81" msprop:DbColumnName="Genres_ID" msprop:FriendlyName="Genres_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="Time_ID" msprop:design-time-name="9c980573-5356-4fb7-81e7-4e80af72ffbc" msprop:DbColumnName="Time_ID" msprop:FriendlyName="Time_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="Owners_ID" msprop:design-time-name="3d3acb64-8a6b-4f92-9ce7-4129ae631ead" msprop:DbColumnName="Owners_ID" msprop:FriendlyName="Owners_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="achievements" msprop:design-time-name="c253407c-5ed3-4e09-ab8e-989cb350c0dd" msprop:DbColumnName="achievements" msprop:FriendlyName="achievements" type="xs:double" minOccurs="0" />
+                  <xs:element name="positive_ratings" msprop:design-time-name="ba33a8d5-a3a7-4cdf-8325-49527a6eafc9" msprop:DbColumnName="positive_ratings" msprop:FriendlyName="positive_ratings" type="xs:double" minOccurs="0" />
+                  <xs:element name="negative_ratings" msprop:design-time-name="54151bcb-bc85-4d2b-bc3c-3721b597bd61" msprop:DbColumnName="negative_ratings" msprop:FriendlyName="negative_ratings" type="xs:double" minOccurs="0" />
+                  <xs:element name="average_playtime" msprop:design-time-name="02213b01-dd17-45fa-935a-a6773191bb64" msprop:DbColumnName="average_playtime" msprop:FriendlyName="average_playtime" type="xs:double" minOccurs="0" />
+                  <xs:element name="median_playtime" msprop:design-time-name="88662fb4-14ae-4937-b3a1-82cfc012624c" msprop:DbColumnName="median_playtime" msprop:FriendlyName="median_playtime" type="xs:double" minOccurs="0" />
+                  <xs:element name="price" msprop:design-time-name="c9a54c3c-eb39-46f6-a137-13de50088f81" msprop:DbColumnName="price" msprop:FriendlyName="price" type="xs:double" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_Developer" />
+          <xs:field xpath="Developer_ID" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_Game_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_Game" />
+          <xs:field xpath="Game_ID" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_Genres_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_Genres" />
+          <xs:field xpath="Genres_ID" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_Owners_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_Owners" />
+          <xs:field xpath="Owners_ID" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_Platforms_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_Platforms" />
+          <xs:field xpath="Platfroms_ID" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_Publisher_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_Publisher" />
+          <xs:field xpath="Publisher_ID" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_Steamspy_tags_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_Steamspy_tags" />
+          <xs:field xpath="Steamspy_tags_ID" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_Time_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_Time" />
+          <xs:field xpath="Time_ID" />
+        </xs:unique>
+        <xs:unique name="dbo_Fact_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="Fact_ID" />
+        </xs:unique>
+        <xs:keyref name="fk_Fact_Time" refer="dbo_DIM_Time_Constraint1">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="Time_ID" />
+        </xs:keyref>
+        <xs:keyref name="fk_Fact_Genres" refer="dbo_DIM_Genres_Constraint1">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="Genres_ID" />
+        </xs:keyref>
+        <xs:keyref name="fk_Fact_Game" refer="dbo_DIM_Game_Constraint1">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="Game_ID" />
+        </xs:keyref>
+        <xs:keyref name="fk_Fact_Owners" refer="dbo_DIM_Owners_Constraint1">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="Owners_ID" />
+        </xs:keyref>
+        <xs:keyref name="fk_Fact_Steamspy_tags" refer="dbo_DIM_Steamspy_tags_Constraint1">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="Steamspy_tags_ID" />
+        </xs:keyref>
+        <xs:keyref name="fk_Fact_Platforms" refer="dbo_DIM_Platforms_Constraint1">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="Platfroms_ID" />
+        </xs:keyref>
+        <xs:keyref name="fk_Fact_Developer" refer="Constraint1">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="Developer_ID" />
+        </xs:keyref>
+        <xs:keyref name="fk_Fact_Publishers" refer="dbo_DIM_Publisher_Constraint1">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="Publisher_ID" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Steam_x0020_DW xmlns="" />
+  </Schema>
+</DataSourceView>

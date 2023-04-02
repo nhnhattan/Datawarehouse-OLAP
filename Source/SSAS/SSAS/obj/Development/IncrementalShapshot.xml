@@ -1,0 +1,110 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>SSAS</Database>
+    <Server>DESKTOP-P2AGM87</Server>
+    <ConnectionString>Data Source=DESKTOP-P2AGM87;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>PhNMG+sPM/wrPAshpfFhMDLKsO8=5/20/2021 4:13:27 PM5/20/2021 4:13:26 PM</TimeStamp>
+        <ID>
+          <String>Steam DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>EJ1rqRdZVorGgcnBYXvjTTysdyk=5/20/2021 4:13:39 PM5/20/2021 4:13:38 PM</TimeStamp>
+        <ID>
+          <String>Steam DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5lZCPIn//UBSPgSbFmdYlO16Yls=5/20/2021 4:17:17 PM5/20/2021 4:13:49 PM</TimeStamp>
+        <ID>
+          <String>DIM Publisher</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Yaa+Qg0h1JDz3O8psHbUcZ7cHgs=5/20/2021 4:17:17 PM5/20/2021 4:13:49 PM</TimeStamp>
+        <ID>
+          <String>DIM Developer</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EwghwMz2BczmdJ7HQ6S/dwYOgI8=5/20/2021 4:17:17 PM5/20/2021 4:13:49 PM</TimeStamp>
+        <ID>
+          <String>DIM Platforms</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>aRQqHAcZ/VVmF2R2NwCvUsnnwvU=5/20/2021 4:17:17 PM5/20/2021 4:13:49 PM</TimeStamp>
+        <ID>
+          <String>DIM Steamspy Tags</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>qMWbiE2tbVrHn1UMsGyL0d7B1j0=5/20/2021 4:17:17 PM5/20/2021 4:13:49 PM</TimeStamp>
+        <ID>
+          <String>DIM Owners</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Uw2csGdIFVMaQPX+p4mTeOdaFB0=5/20/2021 4:17:17 PM5/20/2021 4:13:49 PM</TimeStamp>
+        <ID>
+          <String>DIM Game</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>w28ulf/Voy8KTEyCGRWx2hX5NjM=5/20/2021 4:17:17 PM5/20/2021 4:13:49 PM</TimeStamp>
+        <ID>
+          <String>DIM Genres</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>b/QGu+dln3wnRyhqQQkm6le3sc8=5/20/2021 4:52:51 PM5/20/2021 4:13:49 PM</TimeStamp>
+        <ID>
+          <String>DIM Time</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>IuPg8CC+Q1PxPMabmU2nv6lxyyA=6/27/2021 6:16:49 PM5/20/2021 4:13:49 PM8ADpisv87soHkNdkWyePTyCAyAw=5/20/2021 5:10:59 PM5/20/2021 4:13:49 PM</TimeStamp>
+        <ID>
+          <String>Steam DW</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>WZ8A+Xx2Ppc8EaogTm42UlcnS+s=5/20/2021 4:13:10 PM5/20/2021 4:13:10 PM</TimeStamp>
+      <ID>
+        <String>SSAS</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2021-06-27T12:34:32.346667Z</LastDeployed>
+</DeploymentSnapshot>

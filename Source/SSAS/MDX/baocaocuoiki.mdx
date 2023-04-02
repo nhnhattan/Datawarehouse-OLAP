@@ -1,0 +1,221 @@
+﻿--Câu 1:
+--Những sản phẩm được bán có giá lớn hơn 90$ và sắp xếp giảm dần theo giá
+
+select {[Measures].[Price]} on columns
+,order(
+	filter(
+		[DIM Game].[Name].[Name],
+		[Measures].[Price] >90
+	),
+		[Measures].[Price] 
+, desc)
+on rows
+from [Steam DW];
+
+--Câu 2:
+--Những Game có chữ cái đầu là H và được sắp xếp tăng dần theo tổng giá các game đã phát triển
+
+select [Measures].[Price] on columns
+, filter(
+	order(
+	[DIM Developer].[Developer].[Developer].members,
+	[Measures].[Price]
+	,asc
+	)
+	,left([DIM Developer].[Developer].CurrentMember.Name, 1) = "H"
+	) on rows
+from [Steam DW];
+
+--Câu 3:
+--Trong mỗi quý năm 2010 truy vấn ra 3 nhà phát hành có nhiều game nhất
+
+select {[Measures].[Number of Game]} on columns
+, non empty Generate(
+	[DIM Time].[Quarter].[Quarter].members,
+	topcount(
+		[DIM Developer].[Developer].[Developer].members
+		* [DIM Time].[Quarter].currentmember
+		,3
+		,[Measures].[Number of Game]
+		)
+	)on rows
+from [Steam DW]
+where [DIM Time].[Year].&[2010];
+
+--Câu 4:
+--Những game có lượt đánh giá tiêu cực và tích cực > 3000
+
+select {[Measures].[Positive Ratings], [Measures].[Negative Ratings]}on columns
+, filter(filter(
+	order(
+		[DIM Game].[Name].[Name].members,
+		[Measures].[Positive Ratings]
+		,desc
+		)
+	,[Measures].[Positive Ratings] > 3000 
+	) ,[Measures].[Negative Ratings] > 3000) on rows
+from [Steam DW];
+
+--Câu 5:
+--Trong mỗi quý đầu mỗi năm truy vấn ra 3 nhà phát hành có số game giảm dần
+
+select [Measures].[Number of Game] on columns
+, generate(
+	generate(
+		[DIM Time].[Y Q M].[Year].members,
+		{[DIM Time].[Y Q M].currentmember.firstchild}
+	),
+	topcount(
+	{[DIM Time].[Y Q M].currentmember.children }   * [DIM Time].[Y Q M D].[Year]
+	* [DIM Developer].[Developer].[Developer].members
+	,3
+	,[Measures].[Number of Game]
+	)
+) on rows
+from [Steam DW];
+
+--Câu 6:
+--Tổng lượt đánh giá tích cực của quý hiện tại trừ đi tổng đánh giá tích cực của quý trước. Truy vấn tổng đánh giá quý hiện tại và tổng đánh giá quý trước
+
+with 
+member [Measures].[Positive Ratings Prev] as
+		([DIM Time].[Y Q].currentmember.prevmember,
+		[Measures].[Positive Ratings])
+member [Measures].[Positive Ratings hieu] as 
+		([Measures].[Positive Ratings] - [Measures].[Positive Ratings Prev])
+select { [Measures].[Positive Ratings], 
+		[Measures].[Positive Ratings Prev], 
+		[Measures].[Positive Ratings hieu]} on columns
+,crossjoin([DIM Time].[Y Q].[Quarter],
+			[DIM Time].[Year].[Year]) on rows
+from [Steam DW]; 
+
+--Câu 7: 
+--Truy vấn những nhà phát hành có game mà số lượt tải về là 2000000-5000000
+
+select[Measures].[Price] on columns
+
+,filter(
+
+	crossjoin(
+		[DIM Developer].[Developer].[Developer]
+		,[DIM Owners].[Owners].&[2000000-5000000])
+		,[DIM Owners].[Owners].&[2000000-5000000]) on rows
+from [Steam DW];
+
+--Câu 8
+--Truy vấn 10 nhà phát hành có tổng thời gian chơi trung bình lớn nhất trong quý 1 năm 2012
+
+select [Measures].[Average Playtime] on columns
+,non empty topcount( order(
+		[DIM Developer].[Developer].[Developer].members
+		,[Measures].[Average Playtime]
+		,desc)
+		,10
+		,[Measures].[Average Playtime])on rows
+from [Steam DW]
+where [DIM Time].[Y Q].[Quarter].&[1]&[2012];	
+
+--Câu 9
+--Top 5 nhà phát hành có số lượng game nhiều nhất trong năm 2012 đến 2014
+
+select [Measures].[Number of Game] on columns
+,non empty topcount(
+order(
+ generate(
+	[DIM Time].[Year].[Year].members,
+	[DIM Developer].[Developer].[Developer]
+	)
+	,[Measures].[Number of Game],
+	desc),5
+,[Measures].[Number of Game])on rows
+from [Steam DW]
+where {[DIM Time].[Year].&[2005], [DIM Time].[Year].&[2013],[DIM Time].[Year].&[2010]};
+
+--Câu 10
+--Top 3 nhà phát triển có tổng game nhiều nhất theo quý trong năm 2013 và 2014
+
+select [Measures].[Number of Game] on columns
+,non empty generate(
+		[DIM Time].[Y Q].[Quarter].members
+		,topcount(
+			[DIM Developer].[Developer].[Developer]*
+			 [DIM Time].[Y Q].currentmember 
+			,3
+			,[Measures].[Number of Game]
+		)
+
+	)on rows
+from [Steam DW]
+where {[DIM Time].[Year].&[2013],[DIM Time].[Year].&[2014]};
+
+--câu 11:
+--Thống kê theo từng năm tổng số game, tổng thành tựu theo thể loại (Trừ action và gore), gom nhóm theo owners
+
+select {[Measures].[Number of Game],[Measures].[Achievements]} on columns
+,non empty crossjoin(crossjoin(
+	[DIM Time].[Year].[Year], 
+	except([DIM Genres].[Genres].children,{[DIM Genres].[Genres].&[Action],[DIM Genres].[Genres].&[Gore]}))
+	,[DIM Owners].[Owners].[Owners]
+	) on rows
+from [Steam DW];
+
+--Câu 12: 
+--Thống kê số average_playtime, median_playtime theo từng năm
+
+select {[Measures].[Median Playtime], [Measures].[Average Playtime]} on columns
+,non empty generate(
+		[DIM Time].[Year].[Year].members
+		,[DIM Time].[Year].[Year] 
+	) on rows
+from [Steam DW];
+
+--Câu 13:
+--Theo từng năm in ra game ở nhà phát triển Valve có giá cao  nhất
+
+select [Measures].[Price] on columns
+,non empty generate(
+	[DIM Time].[Year].[Year].members
+
+	,crossjoin([DIM Time].[Year].[Year],topcount([DIM Game].[Name].[Name]
+		
+	,1
+	,[Measures].[Price]
+	) ))on rows
+from [Steam DW]
+where [DIM Developer].[Developer].&[Valve]
+
+
+--Câu 14:
+--In ra 10 nhà phát hành đứng chót có tổng lượt đánh giá tiêu cực > 1000  trong năm 2017
+
+select [Measures].[Negative Ratings] on columns
+,non empty head( filter(
+		order(
+			[DIM Publisher].[Publisher].[Publisher]
+			,[Measures].[Negative Ratings]
+			,asc
+)
+,[Measures].[Negative Ratings] > 1000)
+,10)on rows
+from [Steam DW]
+where [DIM Time].[Year].&[2017];
+
+--Câu 15:
+--Top 3 game 18+ thể loại "Action" có điểm thành tích cao nhất
+
+select [Measures].[Achievements] on columns
+,topcount(
+	filter(
+		order(
+			[DIM Game].[Name].[Name],
+			[Measures].[Achievements],
+			desc
+		)
+	,[DIM Genres].[Genres].&[Action]
+	)
+	,3
+	,[Measures].[Achievements]
+) on rows
+from [Steam DW]
+where [DIM Game].[Required Age].&[1.2E1];
